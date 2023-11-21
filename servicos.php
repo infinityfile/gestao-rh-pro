@@ -1,14 +1,9 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página Inicial</title>
-    <!-- Link to Bootstrap CSS -->
+    <title>Serviços - TalentSphere</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
 </head>
 <body>
@@ -39,39 +34,30 @@
     </div>
 </nav>
 
-<main class="container">
-    <section>
-        <h2>Serviço 1: Ver Folha de Pagamento</h2>
-        <p>
-            Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online.
-            Nosso sistema é atualizado automaticamente, garantindo transparência e precisão nos dados salariais.
-        </p>
-    </section>
+<main class="container-servicos">
+    <?php
+    // Serviços e URLs
+    $servicos = [
+        'Folha de Pagamento' => 'servico1.php',
+        'Consultar Período de Férias' => 'servico2.php',
+        'Gestão de Benefícios' => 'servico3.php'
+    ];
 
-    <section>
-        <h2>Serviço 2: Consultar Período de Férias</h2>
-        <p>
-            Facilitamos a gestão de férias, permitindo que os colaboradores visualizem seus períodos disponíveis,
-            solicitem férias e acompanhem o status das solicitações. Os gestores também têm acesso a ferramentas que
-            simplificam a aprovação e o planejamento de períodos de folga.
-        </p>
-    </section>
-
-    <section>
-        <h2>Serviço 3: Gestão de Benefícios</h2>
-        <p>
-            Integramos um sistema abrangente para gerenciar benefícios, proporcionando uma visão clara e fácil de entender
-            dos pacotes oferecidos. Colaboradores podem explorar opções, fazer seleções e receber informações sobre seus
-            benefícios de maneira transparente.
-        </p>
-    </section>
+    // Exibindo os serviços dinamicamente
+    foreach ($servicos as $titulo => $url) {
+        echo "<section>";
+        echo "<a href='$url'>";
+        echo "<p>$titulo</p>";
+        echo "</a>";
+        echo "</section>";
+    }
+    ?>
 </main>
 
 <footer class="text-white text-center py-2">
     <p class="m-0">Rodapé do site</p>
 </footer>
 
-<!-- Link to Bootstrap JS and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
