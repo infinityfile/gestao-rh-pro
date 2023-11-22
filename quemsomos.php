@@ -14,7 +14,9 @@
 <body>
 
 <header class="text-white text-center py-4">
-    <h1 class="m-0">Página Inicial</h1>
+    <div class="logo">
+        <img src="GestaoRHPRO2.png">
+    </div>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -41,16 +43,11 @@
 
 <main>
     <div class="container">
-        <h2 class="text-center">Quem Somos?</h2>
+        <h2 class="text-center-somos">Quem Somos?</h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6-somos">
                 <p>
-                A Serviços Corporativos de Gestão de Recursos é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <p>
-                Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online.
+                A Serviços Corporativos de Gestão de Recursos é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online. Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor. 
                 </p>
             </div>
         </div>
@@ -58,7 +55,10 @@
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0">Rodapé do site</p>
+    <p class="m-0-footer"><a href="#">Instagram</a></p>
+    <p class="m-0-footer"><a href="#">Linkedin</a></p>
+    <p class="m-0-footer"><a href="#">Discord</a></p>
+    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->

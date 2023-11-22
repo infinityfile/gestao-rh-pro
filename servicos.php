@@ -9,7 +9,9 @@
 <body>
 
 <header class="text-white text-center py-4">
-    <h1 class="m-0">Página Inicial</h1>
+    <div class="logo">
+        <img src="GestaoRHPRO2.png">
+    </div>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -55,7 +57,10 @@
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0">Rodapé do site</p>
+    <p class="m-0-footer"><a href="#">Instagram</a></p>
+    <p class="m-0-footer"><a href="#">Linkedin</a></p>
+    <p class="m-0-footer"><a href="#">Discord</a></p>
+    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
