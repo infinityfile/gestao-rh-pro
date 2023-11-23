@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
+
+    <link rel="stylesheet" href="contato.scss">
+
 </head>
 <body>
 
@@ -42,17 +45,23 @@
 </nav>
 
 <main>
+<h1 class="contato-main-text">Entre em contato conosco</h1>
+
     <div class="container mx-auto"> <!-- Adicionado mx-auto para centralizar horizontalmente -->
         <!-- Adicione o formulário aqui -->
+
         <form action="processa_formulario.php" method="post">
+
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
+
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
+            
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>

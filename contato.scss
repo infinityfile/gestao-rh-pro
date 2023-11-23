@@ -1,0 +1,28 @@
+.contato-main-text {
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 1);
+
+}
+
+body {
+    position: relative;
+    background-image: url("img/empresa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: auto;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}

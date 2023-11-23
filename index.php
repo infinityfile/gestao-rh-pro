@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
+
+    <link rel="stylesheet" href="index.scss">
+
 </head>
 <body>
 
@@ -39,6 +42,8 @@
 </nav>
 
 <main class="container mt-4 d-flex flex-column align-items-center">
+    
+
 </main>
 
 <footer class="text-white text-center py-2">

@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
+
+    <link rel="stylesheet" href="quemsomos.scss">
+    
 </head>
 <body>
 
@@ -42,16 +45,7 @@
 </nav>
 
 <main>
-    <div class="container">
-        <h2 class="text-center-somos">Quem Somos?</h2>
-        <div class="row">
-            <div class="col-md-6-somos">
-                <p>
-                A Serviços Corporativos de Gestão de Recursos é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online. Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor. 
-                </p>
-            </div>
-        </div>
-    </div>
+    
 </main>
 
 <footer class="text-white text-center py-2">
