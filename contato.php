@@ -1,18 +1,29 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, show logout link
+    $menuLink = '<a class="nav-link" href="logout.php">Logout</a>';
+} else {
+    // User is not logged in, show login link
+    $menuLink = '<a class="nav-link" href="login.php">Login</a>';
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página Inicial</title>
+    <title>Contato</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
-
     <link rel="stylesheet" href="contato.scss">
-
 </head>
 <body>
 
@@ -39,29 +50,37 @@
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
 </nav>
 
+
 <main>
-<h1 class="contato-main-text">Entre em contato conosco</h1>
+    <h1 class="contato-main-text">Entre em contato conosco</h1>
 
-    <div class="container mx-auto"> <!-- Adicionado mx-auto para centralizar horizontalmente -->
-        <!-- Adicione o formulário aqui -->
-
+    <div class="container mx-auto"> <!-- Added mx-auto to center horizontally -->
+        <!-- Add the form here -->
         <form action="processa_formulario.php" method="post">
-
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
-
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-            
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>

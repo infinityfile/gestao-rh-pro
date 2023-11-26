@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, show logout link
+    $menuLink = '<a class="nav-link" href="logout.php">Logout</a>';
+} else {
+    // User is not logged in, show login link
+    $menuLink = '<a class="nav-link" href="login.php">Login</a>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,16 +20,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
-
     <link rel="stylesheet" href="index.scss">
-
 </head>
 <body>
 
 <header class="text-white text-center py-4">
-    <div class="logo">
-        <img src="GestaoRHPRO2.png">
-    </div>
+<a href="index.php"><div class="logo">
+    <img src="GestaoRHPRO2.png">
+    </div></a>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -36,10 +47,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <main class="container mt-4 d-flex flex-column align-items-center">
     

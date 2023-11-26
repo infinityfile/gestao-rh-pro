@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// ... (your existing code)
+
+$menuLink = '';
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, provide link for logging out
+    $menuLink = '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+} else {
+    // User is not logged in, provide link for logging in or registering
+    $menuLink = '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,10 +49,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <main class="container-servicos">
 
