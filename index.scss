@@ -19,19 +19,3 @@ body::before {
     z-index: -1;
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
-   }
-   
-.logo img{
-       height: 50px;
-       width: auto;
-       display: flex;
-       transition: transform 0.3s ease-in-out;
-   }
-   
-.logo:hover {
-       transform: scale(1.1);
-       cursor: pointer;
-   }

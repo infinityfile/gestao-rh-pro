@@ -10,12 +10,20 @@ body {
     justify-content: center;
 }
 
-.main-content {
-    background-image: url("close-up-businessman-with-digital-tablet.jpg");
-    background-repeat: no-repeat;
-    height: 1080px;
-    width: 100%;
-}
+
+.logo{
+    display: flex;
+    justify-content: center;
+   }
+   
+.logo img{
+       height: 50px;
+       width: auto;
+   }
+   
+.logo:hover {
+       cursor: pointer;
+   }
 
 .text-center-somos {
     font-size: 50px;
@@ -40,10 +48,8 @@ body {
     text-decoration: none !important;
     color: inherit !important;
     display: block !important;
-    background-color: #fff;
     padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
 
@@ -74,7 +80,7 @@ nav.navbar {
 }
 
 .navbar-brand {
-    margin-right: auto; /* Pushes the brand/logo to the left */
+    margin-right: 15px; /* Pushes the brand/logo to the left */
 }
 
 .navbar-toggler {
@@ -86,7 +92,7 @@ nav.navbar {
 }
 
 .nav-item {
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 main {

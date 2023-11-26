@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id'])) {
 
 <header class="text-white text-center py-4">
 <a href="index.php"><div class="logo">
-    <img src="GestaoRHPRO2.png">
+    <img src="./img/logo.png">
     </div></a>
 </header>
 
