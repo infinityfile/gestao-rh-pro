@@ -1,25 +1,62 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, show logout link
+    $menuLink = '<a class="nav-link" href="logout.php">Logout</a>';
+} else {
+    // User is not logged in, show login link
+    $menuLink = '<a class="nav-link" href="login.php">Login</a>';
+}
+
+// Handle the contact form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if 'name', 'email', and 'message' keys exist in $_POST
+    if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
+        // Get user input
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $message = $_POST["message"];
+
+        // Perform any additional processing or validation here
+
+        // Example: Send an email (You may need to configure your server to send emails)
+        $to = "your@example.com";
+        $subject = "Contact Form Submission";
+        $headers = "From: $email";
+        $mailBody = "Name: $name\nEmail: $email\nMessage:\n$message";
+        
+        // Uncomment the line below to send the email
+        // mail($to, $subject, $mailBody, $headers);
+
+        $successMessage = "Your message has been sent successfully!";
+    } else {
+        $errorMessage = "Please fill out all the required fields.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página Inicial</title>
+    <title>Contato</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
-
     <link rel="stylesheet" href="contato.scss">
-
 </head>
 <body>
 
 <header class="text-white text-center py-4">
-    <div class="logo">
-        <img src="GestaoRHPRO2.png">
-    </div>
+<a href="index.php"><div class="logo">
+    <img src="./img/logo.png">
+    </div></a>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,39 +76,50 @@
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
 </nav>
 
-<main>
-<h1 class="contato-main-text">Entre em contato conosco</h1>
+<main class="container mt-4 d-flex flex-column align-items-center">
+    <?php
+    // Display success or error message if available
+    if (isset($successMessage)) {
+        echo '<div class="alert alert-success mb-4" role="alert">' . $successMessage . '</div>';
+    } elseif (isset($errorMessage)) {
+        echo '<div class="alert alert-danger mb-4" role="alert">' . $errorMessage . '</div>';
+    }
+    ?>
 
-    <div class="container mx-auto"> <!-- Adicionado mx-auto para centralizar horizontalmente -->
-        <!-- Adicione o formulário aqui -->
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <h2>Mande uma mensagem!</h2>
 
-        <form action="processa_formulario.php" method="post">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br>
 
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
-            </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
 
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <input type="submit" value="Enviar">
+    </form>
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0-footer"><a href="#">Instagram</a></p>
-    <p class="m-0-footer"><a href="#">Linkedin</a></p>
-    <p class="m-0-footer"><a href="#">Discord</a></p>
-    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+    <!-- ... (same as login.php) -->
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->

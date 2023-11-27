@@ -8,26 +8,22 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    
 }
+
 
 .logo{
- display: flex;
- justify-content: center;
-}
-
-.logo img {
-    height: 50px;
-    width: auto;
     display: flex;
-}
-
-.main-content {
-    background-image: ("close-up-businessman-with-digital-tablet.jpg");
-    background-repeat: no-repeat;
-    height: 1080px;
-    width: 100%;
-}
+    justify-content: center;
+   }
+   
+.logo img{
+       height: 50px;
+       width: auto;
+   }
+   
+.logo:hover {
+       cursor: pointer;
+   }
 
 .text-center-somos {
     font-size: 50px;
@@ -39,13 +35,11 @@ body {
     column-gap: 50px;
 }
 
-
 .container-servicos {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
-
 }
 
 .container-servicos section a {
@@ -54,6 +48,9 @@ body {
     text-decoration: none !important;
     color: inherit !important;
     display: block !important;
+    padding: 20px;
+    border-radius: 4px;
+    width: 300px;
 }
 
 .container {
@@ -70,6 +67,32 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+nav.navbar {
+    background-color: #333; /* Updated background color */
+}
+
+.navbar-brand,
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin-right: 15px; /* Pushes the brand/logo to the left */
+}
+
+.navbar-toggler {
+    order: -1; /* Moves the toggle button to the left */
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Aligns the navigation items to the right */
+}
+
+.nav-item {
+    margin-right: 10px;
 }
 
 main {

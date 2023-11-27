@@ -1,3 +1,22 @@
+<?php
+// Start the session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+include 'check_login.php';
+
+// User is logged in, show logout link
+$menuLink = '<a class="nav-link" href="logout.php">Logout</a>';
+
+// Check if the user is not logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +30,7 @@
 
 <header class="text-white text-center py-4">
     <div class="logo">
-        <img src="GestaoRHPRO2.png">
+        <img src="./img/logo.png">
     </div>
 </header>
 
@@ -32,10 +51,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <main class="container-servicos">
     <?php

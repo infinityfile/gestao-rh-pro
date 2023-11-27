@@ -1,17 +1,59 @@
 <?php
+session_start();
+
+// Initialize $menuLink
+$menuLink = '';
+
+// Assuming your database connection is stored in $conn
+
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica as credenciais (por simplicidade, a senha é "senha123")
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    // Check if 'username' and 'password' keys exist in $_POST
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
+        // Get user input
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-    if ($username == "seu_usuario" && $password == "senha123") {
-        // Redireciona para a página de dashboard se as credenciais estiverem corretas
-        header("Location: dashboard.php");
-        exit();
+        // Assuming your database connection is stored in $conn
+        // Replace 'your_database_name', 'your_username', and 'your_password' with your actual database details
+        $conn = new mysqli('localhost', 'root', '', 'test');
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Select user data from the database
+        $sql = "SELECT id, username, password FROM users WHERE username = '$username'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row["password"])) {
+                // Password is correct, redirect to the main page
+                $_SESSION['user_id'] = $row['id'];
+                header("Location: servicos.php");
+                exit();
+            } else {
+                $message = "Credenciais inválidas. Tente novamente.";
+            }
+        } else {
+            $message = "Credenciais inválidas. Tente novamente.";
+        }
+
+        $conn->close();
     } else {
-        echo "<p>Credenciais inválidas. Tente novamente.</p>";
+        $message = "Campos 'username' e 'password' não encontrados no formulário.";
     }
+}
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, show logout link
+    $menuLink = '<a class="nav-link" href="logout.php">Logout</a>';
+} else {
+    // User is not logged in, show login link
+    $menuLink = '<a class="nav-link" href="login.php">Login</a>';
 }
 ?>
 
@@ -24,12 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="styles.scss">
+    <link rel="stylesheet" href="login.scss">
+
 </head>
 <body>
 
 <header class="text-white text-center py-4">
     <div class="logo">
-        <img src="GestaoRHPRO2.png">
+        <img src="./img/logo.png">
     </div>
 </header>
 
@@ -50,6 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li class="nav-item">
                     <a class="nav-link" href="servicos.php">Serviços</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registro.php">Registre-se</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto"> <!-- Added ml-auto class to align items to the right -->
+                <?php echo $menuLink; ?>
             </ul>
         </div>
     </div>
@@ -63,25 +113,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <h2>Login</h2>
+
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+
+        <div class="texto-registre-se">
+        <p>Não tem uma conta? <a href="registro.php">Registre-se aqui</a></p>
+        </div>
+
+    </form>
+
+    <!-- Adicione o hyperlink para a página de registro -->
     
-<h2>Login</h2>
-
-<label for="username">Usuário:</label>
-    <input type="text" id="username" name="username" required><br>
-
-    <label for="password">Senha:</label>
-    <input type="password" id="password" name="password" required><br>
-
-    <input type="submit" value="Login">
-</form>
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0-footer"><a href="#">Instagram</a></p>
-    <p class="m-0-footer"><a href="#">Linkedin</a></p>
-    <p class="m-0-footer"><a href="#">Discord</a></p>
-    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+    <!-- ... (rest of your footer code) -->
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->
