@@ -12,6 +12,32 @@ if (isset($_SESSION['user_id'])) {
     // User is not logged in, show login link
     $menuLink = '<a class="nav-link" href="login.php">Login</a>';
 }
+
+// Handle the contact form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if 'name', 'email', and 'message' keys exist in $_POST
+    if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
+        // Get user input
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $message = $_POST["message"];
+
+        // Perform any additional processing or validation here
+
+        // Example: Send an email (You may need to configure your server to send emails)
+        $to = "your@example.com";
+        $subject = "Contact Form Submission";
+        $headers = "From: $email";
+        $mailBody = "Name: $name\nEmail: $email\nMessage:\n$message";
+        
+        // Uncomment the line below to send the email
+        // mail($to, $subject, $mailBody, $headers);
+
+        $successMessage = "Your message has been sent successfully!";
+    } else {
+        $errorMessage = "Please fill out all the required fields.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,31 +92,34 @@ if (isset($_SESSION['user_id'])) {
     </div>
 </nav>
 
+<main class="container mt-4 d-flex flex-column align-items-center">
+    <?php
+    // Display success or error message if available
+    if (isset($successMessage)) {
+        echo '<div class="alert alert-success mb-4" role="alert">' . $successMessage . '</div>';
+    } elseif (isset($errorMessage)) {
+        echo '<div class="alert alert-danger mb-4" role="alert">' . $errorMessage . '</div>';
+    }
+    ?>
 
-<main>
-    <h1 class="contato-main-text">Entre em contato conosco</h1>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <h2>Mande uma mensagem!</h2>
 
-    <div class="container mx-auto"> <!-- Added mx-auto to center horizontally -->
-        <!-- Add the form here -->
-        <form action="processa_formulario.php" method="post">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <input type="submit" value="Enviar">
+    </form>
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0-footer"><a href="#">Instagram</a></p>
-    <p class="m-0-footer"><a href="#">Linkedin</a></p>
-    <p class="m-0-footer"><a href="#">Discord</a></p>
-    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+    <!-- ... (same as login.php) -->
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->

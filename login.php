@@ -123,12 +123,15 @@ if (isset($_SESSION['user_id'])) {
         <input type="password" id="password" name="password" required><br>
 
         <input type="submit" value="Login">
+
+        <div class="texto-registre-se">
+        <p>Não tem uma conta? <a href="registro.php">Registre-se aqui</a></p>
+        </div>
+
     </form>
 
     <!-- Adicione o hyperlink para a página de registro -->
-    <div class="texto-registre-se">
-    <p>Não tem uma conta? <a href="registro.php">Registre-se aqui</a></p>
-    </div>
+    
 </main>
 
 <footer class="text-white text-center py-2">

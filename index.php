@@ -65,9 +65,12 @@ if (isset($_SESSION['user_id'])) {
 
 
 <main class="container mt-4 d-flex flex-column align-items-center">
-    
-
+<div class="welcome-message">
+        <h1>Seja-bem vindo ao nosso site!</h1>
+        <p>Descubra nossos tipos de <a href="servicos.php" class="white-a">serviços</a> incríveis</p>
+    </div>
 </main>
+
 
 <footer class="text-white text-center py-2">
     <p class="m-0-footer"><a href="#">Instagram</a></p>
