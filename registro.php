@@ -55,9 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-    <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your custom stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.scss">
     <link rel="stylesheet" href="registro.scss">
 </head>
@@ -110,12 +111,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Add other necessary fields for registration -->
 
         <input type="submit" value="Registrar">
-    </form>
 
-    <!-- Add a link to the login page -->
-    <div class="texto-registro">
+        <div class="texto-registro">
         <p>Já tem uma conta? <a href="login.php">Faça login aqui</a></p>
     </div>
+    </form>
 </main>
 
 <footer class="text-white text-center py-2">

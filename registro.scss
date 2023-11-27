@@ -1,3 +1,8 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 body {
     position: relative;
     background-image: url("img/empresa.jpg");
@@ -20,9 +25,16 @@ body::before {
 }
 
 .texto-registro p{
-    color: white;
+    color: #FFF;
 }
 
 .texto-registro p a{
-    color: white;
+    color: #FFF;
+}
+
+form h2 {
+    color: #FFF;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
 }

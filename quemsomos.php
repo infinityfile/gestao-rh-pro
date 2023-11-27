@@ -16,9 +16,10 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Quem Somos</title>
-    <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your custom stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.scss">
     <link rel="stylesheet" href="quemsomos.scss">
 </head>
@@ -65,7 +66,20 @@ if (isset($_SESSION['user_id'])) {
 
 
 <main>
-    <!-- Content for Quem Somos -->
+<div class="quem-somos-text">
+    <h1>Quem Somos?</h1>
+</div>
+
+<div class="quem-somos-text-paragraph">
+    <p>A gestão RH PRO é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online.
+        <br><br>Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor.
+    </p>
+</div>
+
+<div class="endereco">
+    <p>Rua Morais e Silve, N 1000 - Maracanã Rio de Janeiro - RJ</p>
+</div>
+
 </main>
 
 <footer class="text-white text-center py-2">

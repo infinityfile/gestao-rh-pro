@@ -47,7 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Contato</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Link to your custom stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.scss">
     <link rel="stylesheet" href="contato.scss">
 </head>
@@ -112,9 +114,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="email" id="email" name="email" required><br>
 
         <label for="message">Mensagem:</label>
-        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <textarea id="message" name="message" rows="2" required></textarea><br>
 
-        <input type="submit" value="Enviar">
+        <input class= "submit" type="submit" value="Enviar">
     </form>
 </main>
 

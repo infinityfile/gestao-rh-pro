@@ -1,9 +1,51 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 body {
     position: relative;
-    background-image: url("img/quem-somos.png");
+    background-image: url("img/empresa.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: auto;
     z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.quem-somos-text {
+    color: white;
+    background-color: #111111cc;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.quem-somos-text-paragraph {
+    color: white;
+    background-color: #111111cc;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.endereco p{
+    color: white;
+    font-size: 23px;
+    margin-top: 30px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.445);
+
 }
