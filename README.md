@@ -5,3 +5,9 @@ Jogue a pasta test, disponibilizada no drive (https://drive.google.com/drive/fol
 Você poderá já logar com este usuário, se quiser:
 Usuário: teste@teste
 Senha: teste
+
+--NOME DOS INTEGRANTES:
+DIEGO DE CASTRO PIMENTEL (202203252496)
+MAURÍCIO GABRIEL RIBEIRO WYATT (202203215876)
+MARIANA HONORATO RODRIGUES (202202549827)
+ANSELMO LIBÓRIO MOURA (202204433346)
