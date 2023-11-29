@@ -65,9 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <header class="text-white text-center py-4">
-    <div class="logo">
-        <img src="./img/logo.png">
-    </div>
+<a href="index.php"><div class="logo">
+    <img src="./img/logo.png">
+    </div></a>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -119,7 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </main>
 
 <footer class="text-white text-center py-2">
-    <!-- Add links for social media or other footer information if necessary -->
+    <p class="m-0-footer"><a href="https://www.instagram.com/">Instagram</a></p>
+    <p class="m-0-footer"><a href="https://www.linkedin.com/">Linkedin</a></p>
+    <p class="m-0-footer"><a href="https://discord.com/">Discord</a></p>
+    <p class="m-0-footer"><a href="https://web.whatsapp.com/">WhatsApp</a></p>
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->

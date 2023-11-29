@@ -26,9 +26,9 @@ if (isset($_SESSION['user_id'])) {
 <body>
 
 <header class="text-white text-center py-4">
-    <div class="logo">
-        <img src="./img/logo.png">
-    </div>
+<a href="index.php"><div class="logo">
+    <img src="./img/logo.png">
+    </div></a>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,35 +64,37 @@ if (isset($_SESSION['user_id'])) {
     </div>
 </nav>
 
-
 <main>
-<div class="quem-somos-text">
-    <h1>Quem Somos?</h1>
-</div>
-
-<div class="quem-somos-text-paragraph">
-    <p>A gestão RH PRO é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online.
-        <br><br>Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor.
-    </p>
-</div>
-
-<div class="endereco">
-    <p>Rua Morais e Silve, N 1000 - Maracanã Rio de Janeiro - RJ</p>
-</div>
-
+    <div class="quem-somos-container">
+        <div class="quem-somos-text" id="clickableDiv">
+            <h1>Quem Somos?</h1>
+            <p id="hiddenParagraph" class="quem-somos-paragraph">
+                A gestão RH PRO é uma empresa inovadora especializada em fornecer soluções abrangentes para a gestão de recursos humanos, facilitando processos críticos para organizações modernas. Oferecemos uma plataforma intuitiva e segura para os colaboradores acessarem suas folhas de pagamento online.
+                <br><br>Nossa abordagem visa simplificar e aprimorar as operações de RH, permitindo que as empresas foquem no que fazem de melhor.
+            </p>
+        </div>
+        <p class="endereco">Rua Morais e Silve, N 1000 - Maracanã Rio de Janeiro - RJ</p>
+    </div>
 </main>
 
 <footer class="text-white text-center py-2">
-    <p class="m-0-footer"><a href="#">Instagram</a></p>
-    <p class="m-0-footer"><a href="#">Linkedin</a></p>
-    <p class="m-0-footer"><a href="#">Discord</a></p>
-    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+    <p class="m-0-footer"><a href="https://www.instagram.com/">Instagram</a></p>
+    <p class="m-0-footer"><a href="https://www.linkedin.com/">Linkedin</a></p>
+    <p class="m-0-footer"><a href="https://discord.com/">Discord</a></p>
+    <p class="m-0-footer"><a href="https://web.whatsapp.com/">WhatsApp</a></p>
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    document.getElementById('clickableDiv').addEventListener('click', function() {
+        var paragraph = document.getElementById('hiddenParagraph');
+        paragraph.style.maxHeight = paragraph.style.maxHeight ? null : paragraph.scrollHeight + 'px';
+    });
+</script>
 
 </body>
 </html>

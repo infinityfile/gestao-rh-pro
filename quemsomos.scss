@@ -2,7 +2,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-
 body {
     position: relative;
     background-image: url("img/empresa.jpg");
@@ -24,28 +23,57 @@ body::before {
     z-index: -1;
 }
 
+.quem-somos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .quem-somos-text {
     color: white;
-    background-color: #111111cc;
+    background-color: #333333b7;
     padding: 20px;
     border-radius: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s forwards;
 }
 
-.quem-somos-text-paragraph {
-    color: white;
-    background-color: #111111cc;
-    padding: 20px;
-    border-radius: 20px;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quem-somos-text p {
     font-size: 20px;
-    margin-top: 40px;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-bottom: 20px;
 }
 
-.endereco p{
-    color: white;
-    font-size: 23px;
-    margin-top: 30px;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.445);
+.quem-somos-text.active p {
+    max-height: 1000px;
+}
 
+.endereco {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px; /* Add margin-top for separation */
+    opacity: 1; /* Set initial opacity to 1 for visibility */
+    transform: translateY(0); /* Set initial transform for visibility */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.445);
+}
+
+.quem-somos-text.active .endereco {
+    opacity: 0;
+    transform: translateY(20px);
 }

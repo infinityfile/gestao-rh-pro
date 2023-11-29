@@ -74,10 +74,10 @@ if (isset($_SESSION['user_id'])) {
 
 
 <footer class="text-white text-center py-2">
-    <p class="m-0-footer"><a href="#">Instagram</a></p>
-    <p class="m-0-footer"><a href="#">Linkedin</a></p>
-    <p class="m-0-footer"><a href="#">Discord</a></p>
-    <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+    <p class="m-0-footer"><a href="https://www.instagram.com/">Instagram</a></p>
+    <p class="m-0-footer"><a href="https://www.linkedin.com/">Linkedin</a></p>
+    <p class="m-0-footer"><a href="https://discord.com/">Discord</a></p>
+    <p class="m-0-footer"><a href="https://web.whatsapp.com/">WhatsApp</a></p>
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->

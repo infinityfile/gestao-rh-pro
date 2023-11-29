@@ -51,11 +51,12 @@ body::before {
   }
   
 .white-a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
 }
 
-.white-a:hover {
-    text-decoration: underline;
-    color: white;
+.white-a:hover{
+  color: #adadad;
 }

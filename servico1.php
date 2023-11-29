@@ -1,4 +1,18 @@
 <?php
+session_start();
+
+// ... (your existing code)
+
+$menuLink = '';
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, provide link for logging out
+    $menuLink = '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+} else {
+    // User is not logged in, provide link for logging in or registering
+    $menuLink = '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+}
+
 use Dompdf\Dompdf;
 
 require_once "dompdf/autoload.inc.php";
@@ -38,6 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_submitted'])) {
 <head>
     <meta charset="UTF-8">
     <title>Folha de Pagamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.scss">
     <link rel="stylesheet" href="servico1.scss">
@@ -47,33 +64,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_submitted'])) {
 <body>
 
     <header class="text-white text-center py-4">
-        <div class="logo">
-            <img src="GestaoRHPRO2.png">
-        </div>
+    <a href="index.php"><div class="logo">
+        <img src="./img/logo.png">
+        </div></a>
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="contato.php">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quemsomos.php">Quem Somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="servicos.php">Serviços</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="contato.php">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quemsomos.php">Quem Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="servicos.php">Serviços</a>
+                </li>
+                <?php
+                if (!isset($_SESSION['user_id'])) {
+                    // Display "Registre-se" link only if the user is not logged in
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="registro.php">Registre-se</a>';
+                    echo '</li>';
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php echo $menuLink; ?>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container-servicos">
         <h2>Informações do Funcionário</h2>
@@ -101,10 +128,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_submitted'])) {
     </main>
 
     <footer class="text-white text-center py-2">
-        <p class="m-0-footer"><a href="#">Instagram</a></p>
-        <p class="m-0-footer"><a href="#">Linkedin</a></p>
-        <p class="m-0-footer"><a href="#">Discord</a></p>
-        <p class="m-0-footer"><a href="#">WhatsApp</a></p>
+        <p class="m-0-footer"><a href="https://www.instagram.com/">Instagram</a></p>
+        <p class="m-0-footer"><a href="https://www.linkedin.com/">Linkedin</a></p>
+        <p class="m-0-footer"><a href="https://discord.com/">Discord</a></p>
+        <p class="m-0-footer"><a href="https://web.whatsapp.com/">WhatsApp</a></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

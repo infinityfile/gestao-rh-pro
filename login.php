@@ -4,8 +4,6 @@ session_start();
 // Initialize $menuLink
 $menuLink = '';
 
-// Assuming your database connection is stored in $conn
-
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if 'username' and 'password' keys exist in $_POST
@@ -69,13 +67,16 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="styles.scss">
     <link rel="stylesheet" href="login.scss">
 
+    <!-- Add the following script for displaying a pop-up message --> 
 </head>
 <body>
 
 <header class="text-white text-center py-4">
-    <div class="logo">
-        <img src="./img/logo.png">
-    </div>
+    <a href="index.php">
+        <div class="logo">
+            <img src="./img/logo.png">
+        </div>
+    </a>
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -136,7 +137,10 @@ if (isset($_SESSION['user_id'])) {
 </main>
 
 <footer class="text-white text-center py-2">
-    <!-- ... (rest of your footer code) -->
+    <p class="m-0-footer"><a href="https://www.instagram.com/">Instagram</a></p>
+    <p class="m-0-footer"><a href="https://www.linkedin.com/">Linkedin</a></p>
+    <p class="m-0-footer"><a href="https://discord.com/">Discord</a></p>
+    <p class="m-0-footer"><a href="https://web.whatsapp.com/">WhatsApp</a></p>
 </footer>
 
 <!-- Link to Bootstrap JS and Popper.js -->
